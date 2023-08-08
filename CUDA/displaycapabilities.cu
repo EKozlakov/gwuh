@@ -6,7 +6,7 @@
 ****************************************************************************/
 #include <iostream>
 #include <iomanip>
-#include "rustc.hh"
+#include "rustc.hh" //can't run this on my machine because I do not have rust libraries - eugene k
 using namespace std;
 #include "cuda_runtime.h"
 #include <time.h>
