@@ -13,9 +13,11 @@ int main(int argc, char* argv[]){
   char letter;
   //int n = 0;
 
-  while(f){
-    f.get(letter); //why does "char letter" need to be a pointer in order for get to function?
-    cout << letter;
+  while(f.get(letter)){ //f.eof()){
+    //f.get(letter); 
+    //why does "char letter" need to be a pointer in order for get to function?
+    //resolved: see following link: https://cplusplus.com/forum/beginner/205483/ //silly.
+    cout << letter << endl;
   }
 
 }
