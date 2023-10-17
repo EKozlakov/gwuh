@@ -7,7 +7,7 @@ import datetime
 #   +we're gonna have to rewrite this to a heap permutation, possibly. there must be a better algorithm for this.
 begin = datetime.datetime.now()
 
-num = 123456789
+num = 123456
 numStr = str(num) #string variant of num
 collector = "" #string -- will append and check divisibility
 numList = list(numStr)
@@ -20,11 +20,11 @@ reset = False
 
 while(0 < len(numList)):
 
-  print(collector)
+  #print(collector)
 
 
-  if(rotator == len(numList)): #rotate i back to start
-    rotator = 0
+  #if(rotator == len(numList)): #rotate i back to start
+    #rotator = rotator%len(numList)
 
   if (swapIndex == 0):
     collector += numList[rotator]
@@ -34,8 +34,10 @@ while(0 < len(numList)):
     swapIndex = 0
     divisor += 1
     index += 1
+    print(collector)
     continue
   elif(swapIndex == len(numList)): #Failure case: starts permuting all numbers. If we starting with first digit as 1, then being instead with 2, and so on.
+    #TODO: TAP IN SWAP VARS FOR BUBBLE SORT
     numList = list(numStr)
     divisor = 1
     swapIndex = 0
