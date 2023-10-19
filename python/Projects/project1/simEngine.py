@@ -11,7 +11,7 @@ def main():
   infectiousCount, susceptibleCount, recoveredCount = sim.count(regionMap, infectiousCount, susceptibleCount, recoveredCount, day)
   sim.simulate(regionMap, threshold, infectiousCount, susceptibleCount, recoveredCount, day, infectionDate, infectiousPeriod)
 
-#try:
-main()
-#except:
- # print("Something went wrong with the program.")
+try:
+  main()
+except:
+  print("Something went wrong with the program.")

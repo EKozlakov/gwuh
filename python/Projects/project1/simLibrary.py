@@ -152,7 +152,7 @@ def simulate(regionMap, threshold, infectiousCount, susceptibleCount, recoveredC
 
 
 def intake(regionMap, infectionDate): #this initializes everything.
-  #try:
+  try:
     fileName = ""
     while(not os.path.exists(fileName)):
       fileName = input("Please input the name of the file which you would like to input for this simulation: ").strip() #intake user input. strip it.
@@ -184,9 +184,9 @@ def intake(regionMap, infectionDate): #this initializes everything.
 
     return day, regionMap, threshold, infectiousPeriod, infectionDate
   
-  #except Exception:
+  except Exception:
     print("Invalid health state detected")
     exit(-1)
-  #except:
+  except:
     print("Something went wrong with intake and initialization.")
     exit(-2)

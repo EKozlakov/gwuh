@@ -20,6 +20,9 @@ def fileGen():
     infectiousQuantity = int(input("Please input the number of infectious people you would like to have in your population: "))
     vaccinatedQuantity = int(input("please input the number of vaccinated people you would like in your population: "))
     susceptibleQuantity = population - (infectiousQuantity + vaccinatedQuantity)
+    if(susceptibleQuantity < 0):
+      print(f"Infected population ({infectiousQuantity}) and Vaccinated population ({vaccinatedQuantity}) in total ({infectiousQuantity} + {vaccinatedQuantity} = {vaccinatedQuantity+infectiousQuantity}) exceed overall population ({population}). Please try another number.")
+      continue
 
   infectiousPeriod = input("Please input the infectious period for your simulation: ").strip()
   threshold = input("Please input the threshold you would like to have for your simulation: ").strip()
@@ -33,7 +36,7 @@ def fileGen():
   #the following was done because a previous version of my algorithm, using x = rand(mapWidth), y = rand(mapLength), was simply stuck in an infinite
   #loop trying to choose the last two coordinates. this increases the speed of coordinate selection by a bunch (didnt measure), and works destructively
   #rather than constructively. large memory cost up front, but eliminate a lost of hassle from trying to randomly select stuff.
-  breakpoint()
+  #breakpoint()
   if(mapLength > mapWidth): #using itertools source: https://stackoverflow.com/questions/5360220/how-to-split-a-list-into-pairs-in-all-possible-ways
     coords = list(itertools.permutations(range(mapLength), 2))
     for i in range(mapLength): #this loop is to account for itertools not creating coordinate pairs containing duplicate vals, i.e. (0,0), (1,1), etc.
@@ -56,12 +59,11 @@ def fileGen():
   else:
     coords = list(itertools.permutations(range(mapWidth), 2)) #removal not needed, this would be the situation where map is a square
 
-  breakpoint()
+  #breakpoint()
   coords = [pair for pair in coords if pair not in delList] # Logically: coords = coords - delList #source for this line: https://stackoverflow.com/questions/4211209/remove-all-the-elements-that-occur-in-one-list-from-another
 
 
   #breakpoint()
-  breakpoint()
   while(0 < vaccinatedQuantity):
     pair = random.choice(coords)
     #breakpoint()
@@ -87,8 +89,7 @@ def fileGen():
   
   printMap(mapTemp)
 
-
-  breakpoint()
+  #breakpoint()
   with open(fileName, 'a') as file:
     file.write("Threshold:" + threshold + "\n")
     file.write("Infectious Period:" + infectiousPeriod + "\n")
