@@ -1,0 +1,13 @@
+Threshold:1
+Infectious Period:1
+s,s
+i,s
+s,s
+s,i
+s,s
+s,s
+s,s
+s,v
+s,v
+s,s
+s,s

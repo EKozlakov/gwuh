@@ -25,14 +25,13 @@ def count(regionMap, infectiousCount, susceptibleCount, recoveredCount, day): #r
   return infectiousCount, susceptibleCount, recoveredCount
 
 
-def printMap(map, day): #prints map.
+def printMap(map): #prints map.
   """
   Note: When colors are painted in the terminal, and the terminal window is resized, you get some of the row colors "running" off
   to the edge of the screen. This is supposedly an old issue that has only recently been fixed in Windows Terminal (please see: 
   https://github.com/microsoft/terminal/pull/12637), but as far as I can tell this has not reached other terminals yet -- at least,
   it hasn't reached mine. Just be wary of these issues as it can make the coloring of the cells look VERY ugly.
   """
-  print("Day:", day)
   endSeq = " \x1B[0;0;0m" #ends ANSII escape sequence. Space added on purpose -- for formatting.
   redSeq = "\x1b[1;31;41m" #redBlock ANSII escape sequence
   yelSeq = "\x1b[1;33;43m" #yellow ANSII escape sequence
@@ -124,7 +123,7 @@ def updateMap(regionMap, threshold, day, infectionDate, mapLength, mapWidth, inf
           else:
             continue #TODO: double check to unsure functionality.
   
-  breakpoint()
+  #breakpoint()
   regionMap = findRecovered(regionMap, day, infectiousPeriod, infectionDate)
 
   return regionMap, infectionDate
@@ -134,12 +133,14 @@ def simulate(regionMap, threshold, infectiousCount, susceptibleCount, recoveredC
   mapLength = len(regionMap)
 
   while(infectiousCount[day] != 0):
-    printMap(regionMap, day)
+    print("Day:", day)
+    printMap(regionMap)
     regionMap, infectionDate = updateMap(regionMap, threshold, day, infectionDate, mapLength, mapWidth, infectiousPeriod)
     day += 1
     infectiousCount, susceptibleCount, recoveredCount = count(regionMap, infectiousCount, susceptibleCount, recoveredCount, day)
   else:
-    printMap(regionMap, day)
+    print("Day", day)
+    printMap(regionMap)
     infectiousCountMaxIndex = infectiousCount.index(max(infectiousCount))
     print("Total population:", (mapWidth*mapLength))
     print("Outbreak Duration:", day, "days")
