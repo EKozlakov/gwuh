@@ -37,3 +37,5 @@ try:
   main()
 except:
   print("Something went wrong with the program.")
+else:
+  print("Simulation terminated successfully.")

@@ -344,7 +344,6 @@ def simulate(regionMap, threshold, infectiousCount, susceptibleCount, recoveredC
     print("Peak Day: Day", infectiousCountMaxIndex)
     print("Peak infected count:", infectiousCount[infectiousCountMaxIndex], "people")
     plotEpidemic(infectiousCount, susceptibleCount, recoveredCount, day)
-    print("Simulation terminated successfully.")
 
 
 def intake(regionMap, infectionDate): #this initializes everything.
@@ -415,3 +414,4 @@ def intake(regionMap, infectionDate): #this initializes everything.
   except:
     print("Something went wrong with intake and initialization.")
     exit(-2)
+  
