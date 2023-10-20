@@ -1,0 +1,14 @@
+Threshold:1
+Infectious Period:3
+s,s,i,s,s,s,i,i,i,s,s,v
+s,s,v,s,s,s,i,i,s,s,v,s
+s,i,s,i,s,s,i,i,s,s,i,i
+s,v,s,s,s,s,i,i,s,s,s,i
+v,s,i,v,s,s,s,v,s,v,s,i
+s,s,s,s,s,s,v,v,i,s,s,s
+v,s,s,s,s,i,s,i,s,s,s,s
+i,i,s,s,s,s,s,s,s,i,s,s
+s,s,s,v,s,s,v,s,s,s,s,i
+s,s,s,s,v,i,s,s,v,s,s,s
+i,i,v,s,v,s,i,s,s,v,s,i
+s,i,s,s,s,s,s,s,v,s,s,s
